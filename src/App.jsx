@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Bonjour from "./components/Bonjour.jsx";
+import MultipleFive from "./components/MultipleFive.jsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,6 +37,8 @@ function App() {
     <>
       <h1>Vite + React</h1>
         <Bonjour name={name} setName={setName}/>
+        <MultipleFive />
+
         <ul>
             {books.map(book => (
                 <li key={book.id}>{book.label}</li>
