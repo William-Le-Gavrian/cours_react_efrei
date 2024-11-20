@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 
 function Home() {
     const [books, setBooks] = useState([])
@@ -26,7 +27,9 @@ function Home() {
             <p>test</p>
             <ul>
                 {books.map(book => (
-                    <li key={book._id}> {book.label}</li>
+                    <li key={book._id}>
+                        <Link to={`/books/${book._id}`}> {book.label}</Link>
+                    </li>
                 ))}
             </ul>
         </div>
