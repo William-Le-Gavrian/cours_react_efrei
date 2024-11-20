@@ -2,54 +2,20 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Bonjour from "./components/Bonjour.jsx";
-import MultipleFive from "./components/MultipleFive.jsx";
+import {Route, Routes} from "react-router-dom";
+import Welcome from "./pages/Welcome.jsx";
+import Home from "./pages/Home.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [name, setName] = useState('')
-
-    const books = [
-        {
-            id: 1,
-            label: "book1"
-        },
-        {
-            id: 2,
-            label: "book1"
-        },
-        {
-            id: 3,
-            label: "book1"
-        },
-        {
-            id: 4,
-            label: "book1"
-        },
-        {
-            id: 5,
-            label: "book1"
-        }
-    ]
-
 
   return (
     <>
-      <h1>Vite + React</h1>
-        <Bonjour name={name} setName={setName}/>
-        <MultipleFive />
 
-        <ul>
-            {books.map(book => (
-                <li key={book.id}>{book.label}</li>
-            ))}
-        </ul>
+        <Routes>
+            <Route  path="/" element={<Home />}/>
+            <Route  path="/welcome" element={<Welcome />}/>
+        </Routes>
 
-        <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
     </>
   )
 }
