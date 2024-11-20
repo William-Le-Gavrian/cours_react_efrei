@@ -1,7 +1,16 @@
-import React, {  useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
+import {ThemeContext} from "../context/ThemeContext.jsx";
 
 
 function ToggleButton() {
+
+    const { toggleTheme } = useContext(ThemeContext)
+    const [isToggled, setIsToggled] = useState(false)
+
+    useEffect(() => {
+        toggleTheme(isToggled  ? 'dark' : 'light')
+    }, [isToggled]);
+
 
     return (
         <>
@@ -11,8 +20,8 @@ function ToggleButton() {
                     type="checkbox"
                     role="switch"
                     id="flexSwitchCheckDefault"
-                    // onChange=""
-                    // checked=""
+                    onChange={(event) => setIsToggled(!isToggled)}
+                    checked={isToggled}
                 />
             </div>
         </>
